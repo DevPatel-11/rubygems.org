@@ -3,17 +3,13 @@
 class Api::V1::ApiKeysController < Api::BaseController
   include ApiKeyable
 
-  def show
-    authenticate_or_request_with_http_basic do |username, password|
-      # strip username mainly to remove null bytes
-      user = User.authenticate(username.strip, password)
-      check_mfa(user) do
-        key = generate_unique_rubygems_key
-        api_key = user.api_keys.build(legacy_key_defaults.merge(hashed_key: hashed_key(key)))
+  before_action :deny_shared_cache
 
-        save_and_respond(api_key, key)
-      end
-    end
+  def show
+    render plain: "This endpoint has been retired. `gem signin` (GET /api/v1/api_key) is no " \
+                  "longer supported. Create an API key at https://rubygems.org/profile/api_keys " \
+                  "and set it up following https://guides.rubygems.org/api-key-scopes/.",
+      status: :gone
   end
 
   def create

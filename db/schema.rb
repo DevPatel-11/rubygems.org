@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_06_26_000000) do
+ActiveRecord::Schema[8.1].define(version: 2026_07_23_061553) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "hstore"
   enable_extension "pg_catalog.plpgsql"
@@ -357,6 +357,7 @@ ActiveRecord::Schema[8.1].define(version: 2026_06_26_000000) do
     t.index ["priority", "created_at"], name: "index_good_job_jobs_for_candidate_lookup", where: "(finished_at IS NULL)"
     t.index ["priority", "created_at"], name: "index_good_jobs_jobs_on_priority_created_at_when_unfinished", order: { priority: "DESC NULLS LAST" }, where: "(finished_at IS NULL)"
     t.index ["priority", "scheduled_at"], name: "index_good_jobs_on_priority_scheduled_at_unfinished_unlocked", where: "((finished_at IS NULL) AND (locked_by_id IS NULL))"
+    t.index ["queue_name", "priority", "created_at"], name: "index_good_jobs_on_queue_dequeue_ordered", where: "(finished_at IS NULL)"
     t.index ["queue_name", "scheduled_at"], name: "index_good_jobs_on_queue_name_and_scheduled_at", where: "(finished_at IS NULL)"
     t.index ["scheduled_at"], name: "index_good_jobs_on_scheduled_at", where: "(finished_at IS NULL)"
   end
@@ -541,7 +542,6 @@ ActiveRecord::Schema[8.1].define(version: 2026_06_26_000000) do
     t.datetime "created_at", null: false
     t.integer "created_by_id", null: false
     t.text "error"
-    t.string "name_type", null: false
     t.datetime "onboarded_at"
     t.integer "onboarded_organization_id"
     t.string "organization_handle", null: false
@@ -771,7 +771,6 @@ ActiveRecord::Schema[8.1].define(version: 2026_06_26_000000) do
     t.string "gem_full_name"
     t.string "gem_platform"
     t.boolean "indexed", default: true
-    t.string "info_checksum"
     t.string "info_checksum_v2"
     t.boolean "latest"
     t.string "licenses"
@@ -792,7 +791,6 @@ ActiveRecord::Schema[8.1].define(version: 2026_06_26_000000) do
     t.text "summary"
     t.datetime "updated_at", precision: nil
     t.datetime "yanked_at", precision: nil
-    t.string "yanked_info_checksum"
     t.string "yanked_info_checksum_v2"
     t.index "lower((full_name)::text)", name: "index_versions_on_lower_full_name"
     t.index "lower((gem_full_name)::text)", name: "index_versions_on_lower_gem_full_name"

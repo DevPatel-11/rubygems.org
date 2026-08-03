@@ -178,6 +178,7 @@ ja:
       invalid_gem: 選択されたgemはこのキーのスコープにありません
     destroy:
       success: APIキーが正常に削除されました：%{name}
+      already_expired:
     index:
       api_keys: APIキー
       name: 名前
@@ -203,6 +204,8 @@ ja:
       mfa: MFA
       expiration: 期限
       update_owner: 所有者を更新
+      view_expired:
+      view_active:
     new:
       new_api_key: 新しいAPIキー
     reset:
@@ -213,6 +216,7 @@ ja:
     edit:
       edit_api_key: APIキーを編集する
       invalid_key: 正しくないAPIキーは編集できません。削除して新規作成してください。
+      expired_key:
     all_gems: 全てのgem
     gem_ownership_removed: このキーのスコープにあった%{rubygem_name}の所有権が削除されました。
   dashboards:
@@ -231,6 +235,17 @@ ja:
   dependencies:
     show:
       click_to_expand: 矢印アイコンをクリックして展開
+      gem_header:
+      required_version_header:
+      scope_header:
+        one:
+        other:
+      reverse_dependencies_header:
+      version_header:
+      date_header:
+      downloads_count:
+      downloads_header:
+      see_all_reverse:
   email_confirmations:
     create:
       promise_resend: メールアドレスが登録されている場合は、アカウント有効化のための確認リンクをEメールで送ります。
@@ -245,9 +260,24 @@ ja:
     index:
       downloads_counting_html: ダウンロード数
       find_blurb_html: RubyGemを発見、<br>インストール、公開しよう。
+      find_blurb_lead:
       learn:
         install_rubygems: RubyGemsをインストール
+      donation:
+        body:
+        cta:
+        title:
+      powered_by:
+        body_html:
+        title:
+      supporters:
+        body:
+        cta:
+        title:
   layouts:
+    subject:
+      subject_label:
+      subject_secondary_label:
     application:
       footer:
         about: 概要
@@ -291,6 +321,8 @@ ja:
         to blog post)！"
   breadcrumbs:
     home: ホーム
+    latest_version:
+    versions:
     dashboard: ダッシュボード
     settings: 設定
     org_name: 組織：%{name}
@@ -333,6 +365,10 @@ ja:
     gem_yanked:
       subject: "%{gem} gemが%{host}からヤンクされました"
       title: gemがヤンクされました
+    cache_exposure_inactive_notice:
+      subject:
+    cache_exposure_notice:
+      subject:
     reset_api_key:
       subject: "%{host}のAPIキーがリセットされました"
       title: APIキーがリセットされました
@@ -471,6 +507,8 @@ ja:
           <span class="font-bold">%{role}</span>として<br>
           組織へ参加するよう招待されました。
   pages:
+    index:
+      title:
     about:
       contributors_amount: "%{count}人以上のRubyist"
       downloads_amount: 何億回ものgemダウンロード
@@ -494,6 +532,8 @@ ja:
       title: RubyGemsをダウンロード
     security:
       title: セキュリティ
+    security-engineers-in-residence-faq:
+      title:
     supporters:
       title: RubyGemsの支援者
   policies:
@@ -653,10 +693,13 @@ ja:
     edit:
       role: ロール
       title: 所有者を編集
+      submit_button:
+      user:
     confirm:
       confirmed_email: "%{gem} gemの所有者として追加されました"
       token_expired: 確認トークンが期限切れです。gemのページからトークンを再送してみてください。
     index:
+      title:
       add_owner: 所有者を追加
       name: 所有者
       mfa: MFAの状態
@@ -671,7 +714,14 @@ ja:
       info: 所有者を追加または削除する
       confirmed: 確定
       pending: 保留
+      current_user_badge:
       confirm_remove: このユーザーを所有者から削除されたいとのことでよろしいですか。
+      remove_self_dialog:
+        title:
+        warning:
+        confirm_label:
+        submit:
+        cancel:
     resend_confirmation:
       resent_notice: 確定メールがEメールに再送されました。
     create:
@@ -686,6 +736,7 @@ ja:
   settings:
     edit:
       title: 設定を編集
+      account_header:
       webauthn_credentials: セキュリティ機器
       no_webauthn_credentials: セキュリティ機器がありません
       webauthn_credential_note: セキュリティ機器とは、セキュリティキーや生体認証キーといった、FIDO2規格に準じた任意の機器です。
@@ -751,6 +802,10 @@ ja:
     request_denied: このリクエストは拒否されました。パスワードを検証できませんでした。
     show:
       title: "%{username} のプロフィール"
+      gems:
+      no_gems:
+      edit_profile:
+      email_me:
     security_events:
       title: セキュリティ事象
       description_html: |-
@@ -759,6 +814,11 @@ ja:
   rubygems:
     aside:
       downloads_for_this_version: このバージョンのみ
+      github_star:
+      latest_version_button:
+      versions_button:
+        one:
+        other:
       gem_version_age: このバージョンがリリースされたのは
       required_ruby_version: 必要なRubyのバージョン
       required_rubygems_version: 必要なRubyGemsのバージョン
@@ -774,6 +834,7 @@ ja:
         funding: 寄付
         header: リンク
         home: ホームページ
+        verified:
         mail: メーリングリスト
         analytics:
         report_abuse: 悪用報告
@@ -819,6 +880,12 @@ ja:
     show:
       bundler_header: Gemfile
       install: インストール
+      tabs:
+        label:
+        readme:
+        gem_info:
+        contents:
+        dependencies:
       licenses_header:
         one: ライセンス
         other: ライセンス
@@ -850,9 +917,14 @@ ja:
           other: "%{count} gemを%{organization}に正常に移動しました。"
   reverse_dependencies:
     index:
+      date_header:
+      downloads_count:
+      downloads_header:
+      gem_header:
       title: "%{name}の被依存関係"
       subtitle: 以下のgemの最新版は%{name}を必要としています
       no_reverse_dependencies: このgemは被依存関係がありません。
+      version_header:
     search:
       search_reverse_dependencies_html: 被依存関係のgemから検索...
   searches:
@@ -864,6 +936,7 @@ ja:
       updated: 更新日
       yanked: ヤンク済み
     show:
+      title:
       subtitle_html: "<em>%{query}</em>の検索結果"
       month_update: 先月更新（%{count}件）
       week_update: 先週更新（%{count}件）
@@ -874,6 +947,7 @@ ja:
     new:
       forgot_password: パスワードをお忘れですか？
       resend_confirmation: 確認メールを受け取っていませんか？
+      confirm:
     verify:
       title:
       confirm: 確定
@@ -904,6 +978,7 @@ ja:
     index:
       title: 統計
       all_time_most_downloaded: 累計最多ダウンロード数
+      clickgems:
       total_gems: gem総数
       total_users: ユーザー総数
   users:
@@ -1097,6 +1172,7 @@ ja:
       api_key:
         api_key_created: APIキーが作成されました
         api_key_deleted: APIキーが削除されました
+        api_key_cache_exposure_revoked:
         api_key_name: 名前：%{name}
         api_key_scopes: スコープ：%{scopes}
         api_key_gem_html: gem：%{gem}

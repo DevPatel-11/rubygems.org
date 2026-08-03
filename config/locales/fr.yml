@@ -182,6 +182,7 @@ fr:
       invalid_gem:
     destroy:
       success:
+      already_expired:
     index:
       api_keys:
       name:
@@ -207,6 +208,8 @@ fr:
       mfa:
       expiration:
       update_owner:
+      view_expired:
+      view_active:
     new:
       new_api_key:
     reset:
@@ -217,6 +220,7 @@ fr:
     edit:
       edit_api_key:
       invalid_key:
+      expired_key:
     all_gems:
     gem_ownership_removed:
   dashboards:
@@ -237,6 +241,17 @@ fr:
   dependencies:
     show:
       click_to_expand:
+      gem_header:
+      required_version_header:
+      scope_header:
+        one:
+        other:
+      reverse_dependencies_header:
+      version_header:
+      date_header:
+      downloads_count:
+      downloads_header:
+      see_all_reverse:
   email_confirmations:
     create:
       promise_resend: Si ce compte existe, vous recevrez un email avec un lien de
@@ -253,9 +268,24 @@ fr:
     index:
       downloads_counting_html: téléchargements à ce jour
       find_blurb_html: Trouvez, installez et publiez des RubyGems.
+      find_blurb_lead:
       learn:
         install_rubygems: Installez RubyGems
+      donation:
+        body:
+        cta:
+        title:
+      powered_by:
+        body_html:
+        title:
+      supporters:
+        body:
+        cta:
+        title:
   layouts:
+    subject:
+      subject_label:
+      subject_secondary_label:
     application:
       footer:
         about: À propos
@@ -298,6 +328,8 @@ fr:
       mfa_banner_html:
   breadcrumbs:
     home: Accueil
+    latest_version:
+    versions:
     dashboard: Dashboard
     settings: Paramètres
     org_name: 'Org: %{name}'
@@ -347,6 +379,10 @@ fr:
     gem_yanked:
       subject:
       title:
+    cache_exposure_inactive_notice:
+      subject:
+    cache_exposure_notice:
+      subject:
     reset_api_key:
       subject:
       title:
@@ -471,6 +507,8 @@ fr:
         decline:
         title_html:
   pages:
+    index:
+      title:
     about:
       contributors_amount:
       downloads_amount:
@@ -507,6 +545,8 @@ fr:
     download:
       title:
     security:
+      title:
+    security-engineers-in-residence-faq:
       title:
     supporters:
       title:
@@ -657,10 +697,13 @@ fr:
     edit:
       role:
       title:
+      submit_button:
+      user:
     confirm:
       confirmed_email:
       token_expired:
     index:
+      title:
       add_owner:
       name:
       mfa:
@@ -675,7 +718,14 @@ fr:
       info:
       confirmed:
       pending:
+      current_user_badge:
       confirm_remove:
+      remove_self_dialog:
+        title:
+        warning:
+        confirm_label:
+        submit:
+        cancel:
     resend_confirmation:
       resent_notice:
     create:
@@ -690,6 +740,7 @@ fr:
   settings:
     edit:
       title:
+      account_header:
       webauthn_credentials:
       no_webauthn_credentials:
       webauthn_credential_note:
@@ -768,12 +819,21 @@ fr:
       mot de passe.
     show:
       title: Profil de %{username}
+      gems:
+      no_gems:
+      edit_profile:
+      email_me:
     security_events:
       title:
       description_html:
   rubygems:
     aside:
       downloads_for_this_version: Pour cette version
+      github_star:
+      latest_version_button:
+      versions_button:
+        one:
+        other:
       gem_version_age: Version publiée
       required_ruby_version: Version de Ruby requise
       required_rubygems_version:
@@ -789,6 +849,7 @@ fr:
         funding:
         header: Liens
         home: Page d'accueil
+        verified:
         mail: Liste de diffusion
         analytics:
         report_abuse: Signaler un abus
@@ -833,6 +894,12 @@ fr:
     show:
       bundler_header: Gemfile
       install: installation
+      tabs:
+        label:
+        readme:
+        gem_info:
+        contents:
+        dependencies:
       licenses_header:
         one: License
         other: Licenses
@@ -873,9 +940,14 @@ fr:
           other:
   reverse_dependencies:
     index:
+      date_header:
+      downloads_count:
+      downloads_header:
+      gem_header:
       title: Dépendances inversées pour %{name}
       subtitle:
       no_reverse_dependencies:
+      version_header:
     search:
       search_reverse_dependencies_html: Chercher des dépendances inversées Gems&hellip;
   searches:
@@ -887,6 +959,7 @@ fr:
       updated: Mis à jour
       yanked:
     show:
+      title:
       subtitle_html: pour <em>%{query}</em>
       month_update:
       week_update:
@@ -897,6 +970,7 @@ fr:
     new:
       forgot_password: Mot de passe oublié ?
       resend_confirmation: Vous n'avez pas reçu l'email de confirmation ?
+      confirm:
     verify:
       title:
       confirm:
@@ -927,6 +1001,7 @@ fr:
     index:
       title:
       all_time_most_downloaded: Gems les plus téléchargés
+      clickgems:
       total_gems: Total de gems
       total_users: Total d'utilisateurs
   users:
@@ -1106,6 +1181,7 @@ fr:
       api_key:
         api_key_created:
         api_key_deleted:
+        api_key_cache_exposure_revoked:
         api_key_name:
         api_key_scopes:
         api_key_gem_html:

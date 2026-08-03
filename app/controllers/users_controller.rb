@@ -3,6 +3,7 @@
 class UsersController < ApplicationController
   before_action :redirect_to_root, if: :signed_in?
   before_action :reject_disabled_signup, only: :create
+  layout "hammy"
 
   def new
     @user = User.new
@@ -13,8 +14,9 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     @user.policies_acknowledged_at = Time.zone.now
     if @user.save
-      Datadog::Kit::AppSec::Events.track_signup(
-        user: { id: @user.id.to_s, login: Digest::SHA256.hexdigest(@user.handle || @user.email) }
+      Datadog::Kit::AppSec::Events::V2.track_user_signup(
+        Digest::SHA256.hexdigest(@user.handle || @user.email),
+        @user.id.to_s
       )
       Mailer.email_confirmation(@user).deliver_later
       flash[:notice] = t(".email_sent")
