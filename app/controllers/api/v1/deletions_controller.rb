@@ -13,7 +13,6 @@ class Api::V1::DeletionsController < Api::BaseController
   def create
     authorize @rubygem, :yank? # TODO: change to @version
     @deletion = @api_key.user.deletions.build(version: @version)
-
     if @deletion.save
       record_transparency_log_event("gem_yank", @deletion)
       StatsD.increment "yank.success"
@@ -28,7 +27,7 @@ class Api::V1::DeletionsController < Api::BaseController
     else
       StatsD.increment "yank.failure"
       render plain: response_with_mfa_warning(@deletion.errors.full_messages.to_sentence),
-        status: :unprocessable_content
+             status: :unprocessable_content
     end
   end
 
@@ -37,7 +36,7 @@ class Api::V1::DeletionsController < Api::BaseController
   def validate_gem_and_version
     if !@rubygem.hosted?
       render plain: response_with_mfa_warning(t(:this_rubygem_could_not_be_found)),
-        status: :not_found
+             status: :not_found
     elsif !@rubygem.owned_by?(@api_key.user)
       render_forbidden response_with_mfa_warning("You do not have permission to delete this gem.")
     else
@@ -46,9 +45,8 @@ class Api::V1::DeletionsController < Api::BaseController
         platform = params.permit(:platform).fetch(:platform, nil)
         @version = @rubygem.find_version!(number: version, platform: platform)
       rescue ActiveRecord::RecordNotFound
-        render plain: response_with_mfa_warning(
-          "The version #{version}#{" (#{platform})" if platform.present?} does not exist."
-        ), status: :not_found
+        render plain: response_with_mfa_warning("The version #{version}#{" (#{platform})" if platform.present?} does not exist."),
+               status: :not_found
       end
     end
   end
