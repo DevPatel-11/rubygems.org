@@ -12,7 +12,7 @@ gem "aws-sdk-sqs", "~> 1.117"
 gem "bootsnap", "~> 1.24"
 gem "clearance", "~> 2.12"
 gem "dalli", "~> 3.2"
-gem "datadog", "~> 2.38"
+gem "datadog", "~> 2.40"
 gem "dogstatsd-ruby", "~> 5.7"
 gem "google-protobuf", "~> 4.35"
 gem "faraday", "~> 2.14"
@@ -57,7 +57,7 @@ gem "pwned", "~> 2.4"
 gem "webauthn", "~> 3.4"
 gem "browser", "~> 6.2"
 gem "bcrypt", "~> 3.1"
-gem "blazer", "~> 3.4.0"
+gem "blazer", "~> 3.5.1"
 gem "maintenance_tasks", "~> 2.17"
 gem "strong_migrations", "~> 2.8"
 gem "phlex-rails", "~> 2.4"
@@ -71,7 +71,7 @@ gem "zlib", "~> 3.2"
 gem "yaml-schema", "~> 1.2"
 
 # Admin dashboard
-gem "avo", "~> 3.13"
+gem "avo", "~> 3.32"
 gem "pagy", "~> 8.4"
 gem "view_component", "~> 4.12.0"
 gem "pundit", "~> 2.5"
@@ -119,7 +119,7 @@ group :development, :test do
   gem "pg_query", "~> 6.2"
 
   # bundle show | rg rubocop | cut -d' ' -f4 | xargs bundle update
-  gem "rubocop", "~> 1.88", require: false
+  gem "rubocop", "~> 1.89", require: false
   gem "rubocop-rails", "~> 2.36", require: false
   gem "rubocop-performance", "~> 1.26", require: false
   gem "rubocop-minitest", "~> 0.40", require: false

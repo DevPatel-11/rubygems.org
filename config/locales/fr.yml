@@ -1,5 +1,8 @@
 ---
 fr:
+  admin:
+    delete_user:
+      blocked_reason:
   credentials_required:
   copied: Copié!
   copy_to_clipboard: Copier
@@ -206,6 +209,7 @@ fr:
       reset:
       save_key:
       mfa:
+      mfa_enabled_notice:
       expiration:
       update_owner:
       view_expired:

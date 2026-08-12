@@ -1,5 +1,8 @@
 ---
 nl:
+  admin:
+    delete_user:
+      blocked_reason:
   credentials_required:
   copied: Gekopieerd
   copy_to_clipboard: Kopieer naar klembord
@@ -201,6 +204,7 @@ nl:
       reset:
       save_key:
       mfa:
+      mfa_enabled_notice:
       expiration:
       update_owner:
       view_expired:
